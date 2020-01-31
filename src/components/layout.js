@@ -3,30 +3,39 @@ import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, children, description }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
-
   if (location.pathname === rootPath) {
     header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
+      <div>
+        <h2
           style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
+            ...scale(1.5),
+            paddingBottom: 0,
+            marginBottom: 0,
+            marginTop: 0,
           }}
-          to={`/`}
         >
-          {title}
-        </Link>
-      </h1>
+          <Link
+            style={{
+              boxShadow: `none`,
+              textDecoration: `none`,
+              color: `inherit`,
+            }}
+            to={`/`}
+          >
+            {title}
+          </Link>
+        </h2>
+        <h4 
+          style={{
+            marginLeft: 250,
+          }}
+        >  
+          {description}
+        </h4>
+      </div>
     )
   } else {
     header = (
@@ -61,9 +70,9 @@ const Layout = ({ location, title, children }) => {
       <header>{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
+        © {new Date().getFullYear()}, Govardhan G D.
         {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        All rights reserved.
       </footer>
     </div>
   )
